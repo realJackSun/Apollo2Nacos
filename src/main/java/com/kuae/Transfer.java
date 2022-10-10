@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.Properties;
 
 public class Transfer {
@@ -20,16 +19,16 @@ public class Transfer {
     
     
     // 阿里云账号的AK/SK
-    static final String akForFather = "{ak}";
-    static final String skForFather = "{sk}";
+    static final String ak = "{ak}";
+    static final String sk = "{sk}";
     static {
         propertiesForMse = new Properties();
         // 给访问MSE的授予基础信息
         propertiesForMse.put("keyId", keyId);
         propertiesForMse.put("regionId", regionId);
         // 给访问MSE的Properties授予AK/SK
-        propertiesForMse.put("accessKey", akForFather);
-        propertiesForMse.put("secretKey", skForFather);
+        propertiesForMse.put("accessKey", ak);
+        propertiesForMse.put("secretKey", sk);
     }
     
     public static void main(String[] args) throws IOException, NacosException {
@@ -38,7 +37,7 @@ public class Transfer {
         // 传入NamespaceId，如果希望发布到public则将其namespaceId置为""
         String namespaceId = "test-to";
         // 导出配置之后的根目录
-        String rootPath =  "/Users/sunli/lab/configs/1655196894437";
+        String rootPath =  "/Users/sunli/lab/configs/ns1";
         
         propertiesForMse.put("serverAddr", mseServerAddr);
         propertiesForMse.put("namespace", namespaceId);
